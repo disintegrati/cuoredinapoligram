@@ -34,16 +34,20 @@ var pub = __dirname + '/public',
  * Set the 'client ID' and the 'client secret' to use on Instagram
  * @type {String}
  */
-var clientID = '9a0a6df896cc436daba9de70428ca4a7',
-    clientSecret = '72a5c7acc43a44e1bc3603fd0c19f165';
+var clientID = 'QUI CI VA IL CLIENT ID',
+    clientSecret = 'QUI CI VA IL CLIENT SECRET';
 
 /**
  * Set the configuration
  */
+ /**
+  * METTERE SEMPRE LA PORTA DOPO GLI URL AD ES WWW.GOOGLE.IT:3702 
+  * */
+  
 Instagram.set('client_id', clientID);
 Instagram.set('client_secret', clientSecret);
-Instagram.set('callback_url', 'http://casa.wordpress-napoli.it:3702/callback');
-Instagram.set('redirect_uri', 'http://casa.wordpress-napoli.it:3702');
+Instagram.set('callback_url', 'URL DI CALLBACK');
+Instagram.set('redirect_uri', 'URL DI REDIRECT');
 Instagram.set('maxSockets', 10);
 
 /**
@@ -55,39 +59,12 @@ Instagram.subscriptions.subscribe({
   object: 'tag',
   object_id: 'cuoredinapoli',
   aspect: 'media',
-  callback_url: 'http://casa.wordpress-napoli.it:3702/callback',
+  callback_url: 'URLDICALLBACK SEGUITO DA /callback',
   type: 'subscription',
   id: '#'
 });
 
-/**
- * Uses the library "instagram-node-lib" to Subscribe to the Instagram API Real Time
- * with the tag "hashtag" lollapalooza2013
- * @type {String}
-*/
-/*
-Instagram.subscriptions.subscribe({
-  object: 'tag',
-  object_id: 'beach',
-  aspect: 'media',
-  callback_url: 'http://casa.wordpress-napoli.it:3700/callback',
-  type: 'subscription',
-  id: '#'
-});
 
-/**
- * Uses the library "instagram-node-lib" to Subscribe to the Instagram API Real Time
- * with the tag "hashtag" lolla2013
- * @type {String}
-
-Instagram.subscriptions.subscribe({
-  object: 'tag',
-  object_id: 'lolla2013',
-  aspect: 'media',
-  callback_url: 'http://YOUR_URL.com/callback',
-  type: 'subscription',
-  id: '#'
-});
 */
 // if you want to unsubscribe to any hashtag you subscribe
 // just need to pass the ID Instagram send as response to you
@@ -126,7 +103,7 @@ app.get("/views", function(req, res){
 });
 
 // check subscriptions
-// https://api.instagram.com/v1/subscriptions?client_secret=9a0a6df896cc436daba9de70428ca4a7&client_id=72a5c7acc43a44e1bc3603fd0c19f165
+// https://api.instagram.com/v1/subscriptions?client_secret=INSERIRE IL CLIENT SECRET&client_id=QUI IL CLIENT ID
 
 /**
  * On socket.io connection we get the most recent posts
