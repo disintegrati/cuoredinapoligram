@@ -1,8 +1,8 @@
 {
-  "name": "RealTimeInstagram",
+  "name": "CuoreDiNapoliGram",
   "version": "0.0.1",
-  "description": "Real time instagram",
-  "author": "Michael Lancaster",
+  "description": "Every tag, a led blink",
+  "author": "mediaintegrati",
   "dependencies": {
     "express": "3.5.1",
     "instagram-node-lib": "~0.1.1",
