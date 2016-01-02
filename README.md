@@ -1,5 +1,5 @@
 # cuoredinapoligram
-pulse a led when match the hashtag
+A led pulse for every matched hashtag
 
 
 liberamente tratto da
