@@ -1,5 +1,5 @@
 (function() {
-    var socket = io.connect('http://casa.wordpress-napoli.it:3702');
+    var socket = io.connect('qui ci va indirizzo seguito da :3702');
 
     /**
      * [Namespacing]
