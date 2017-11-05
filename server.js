@@ -6,20 +6,23 @@ var Instagram = require('instagram-node-lib');
 var http = require('http');
 var request = ('request');
 var intervalID;
-var gpio = require("pi-gpio");
+var five = require("johnny-five");
+var board = new five.Board();
+
+board.on("ready", function() {
+
+  var led = new five.Led(13);
 
 
-function blinka() {
-  gpio.open(11, "output", function(err) {
-    gpio.write(11, 1, function() {
-      setTimeout(function() {
-        gpio.close(11)
-      }, 500);
 
-    })
 
-  })
+function blinka(){
+  led.blink();
+  setTimeout(function() { led.stop().off(); }, 15000);
 }
+
+
+
 
 
 
@@ -34,20 +37,20 @@ var pub = __dirname + '/public',
  * Set the 'client ID' and the 'client secret' to use on Instagram
  * @type {String}
  */
-var clientID = 'QUI CI VA IL CLIENT ID',
-    clientSecret = 'QUI CI VA IL CLIENT SECRET';
+var clientID = '9a0a6df896cc436daba9de70428ca4a7',
+    clientSecret = '72a5c7acc43a44e1bc3603fd0c19f165';
 
 /**
  * Set the configuration
  */
  /**
-  * METTERE SEMPRE LA PORTA DOPO GLI URL AD ES WWW.GOOGLE.IT:3702 
+  * METTERE SEMPRE LA PORTA DOPO GLI URL AD ES WWW.GOOGLE.IT:3702
   * */
-  
+
 Instagram.set('client_id', clientID);
 Instagram.set('client_secret', clientSecret);
-Instagram.set('callback_url', 'URL DI CALLBACK');
-Instagram.set('redirect_uri', 'URL DI REDIRECT');
+Instagram.set('callback_url', 'http://0b8390cd.ngrok.io/callback');
+Instagram.set('redirect_uri', 'http://0b8390cd.ngrok.io');
 Instagram.set('maxSockets', 10);
 
 /**
@@ -59,16 +62,16 @@ Instagram.subscriptions.subscribe({
   object: 'tag',
   object_id: 'cuoredinapoli',
   aspect: 'media',
-  callback_url: 'URLDICALLBACK SEGUITO DA /callback',
+  callback_url: 'http://0b8390cd.ngrok.io/callback',
   type: 'subscription',
   id: '#'
 });
 
 
-*/
+
 // if you want to unsubscribe to any hashtag you subscribe
 // just need to pass the ID Instagram send as response to you
-Instagram.subscriptions.unsubscribe({ id: '21487306' });
+//Instagram.subscriptions.unsubscribe({ id: '21487306' });
 
 
 // https://devcenter.heroku.com/articles/using-socket-io-with-node-js-on-heroku
@@ -154,7 +157,5 @@ function sendMessage(url) {
 
 
 
-
-
-
 console.log("Listening on port " + port);
+});

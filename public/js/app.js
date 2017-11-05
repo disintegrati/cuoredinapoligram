@@ -1,5 +1,5 @@
 (function() {
-    var socket = io.connect('qui ci va indirizzo seguito da :3702');
+    var socket = io.connect('http://0b8390cd.ngrok.io');
 
     /**
      * [Namespacing]
